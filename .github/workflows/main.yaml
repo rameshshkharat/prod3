@@ -6,8 +6,22 @@ on:
 jobs:
   build:
     name: Github-Build-CopyCode
-    runs-on: ubuntu-latest
-    # runs-on: prod
+    # runs-on: ubuntu-latest
+    runs-on: build
+    environment: build
+    steps:
+      - name: basic commands
+        run: |
+          uname -r
+          hostname
+          cat /etc/os-release
+          pwd
+          date
+          echo "I like Vadapav" > build.txt
+  prod:
+    name: Github-prod-CopyCode
+    #runs-on: ubuntu-latest
+    runs-on: prod
     environment: prod
     steps:
       - name: basic commands
@@ -17,4 +31,19 @@ jobs:
           cat /etc/os-release
           pwd
           date
-          echo "I like Vadapav" > hello.txt
+          echo "I like Vadapav" > prod.txt
+  test:
+    name: Github-test-CopyCode
+    #runs-on: ubuntu-latest
+    runs-on: test
+    environment: test
+    steps:
+      - name: basic commands
+        run: |
+          uname -r
+          hostname
+          cat /etc/os-release
+          pwd
+          date
+          echo "I like Vadapav" > test.txt
+
