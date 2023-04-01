@@ -51,5 +51,5 @@ jobs:
           sudo apt update -y
           sudo apt install apache2 -y
           sudo chmod -R a+rwx /var/www/html
-          sudo echo "Running in Prod" > /var/www/html/index.html
+          sudo echo "testing CICD Pipeline" > /var/www/html/index.html
 
