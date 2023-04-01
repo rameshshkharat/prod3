@@ -6,8 +6,8 @@ on:
 jobs:
   build:
     name: Github-Build-CopyCode
-    # runs-on: ubuntu-latest
-    runs-on: prod
+    runs-on: ubuntu-latest
+    # runs-on: prod
     environment: prod
     steps:
       - name: basic commands
