@@ -17,3 +17,4 @@ jobs:
           cat /etc/os-release
           pwd
           date
+          echo "I like Vadapav" > hello.txt
