@@ -26,7 +26,8 @@ jobs:
     runs-on: prod
     environment: prod
     steps:
-     
+      - name: Checkout the files
+        uses: actions/checkout@v2
       - name: Deploy to prod
         uses: easingthemes/ssh-deploy@main
         env:
