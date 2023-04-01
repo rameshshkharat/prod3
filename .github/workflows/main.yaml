@@ -26,18 +26,7 @@ jobs:
     runs-on: prod
     environment: prod
     steps:
-      - name: basic commands
-        run: |
-          uname -r
-          hostname
-          cat /etc/os-release
-          pwd
-          date
-          echo "I like Vadapav" > test.txt
-          sudo apt update -y
-          sudo apt install apache2 -y
-          sudo chmod -R a+rwx /var/www/html
-          sudo echo "testing CICD Pipeline" > /var/www/html/index.html
+     
       - name: Deploy to prod
         uses: easingthemes/ssh-deploy@main
         env:
