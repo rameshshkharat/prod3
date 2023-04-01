@@ -1,0 +1,19 @@
+name: Push-to-EC2
+on:
+  push:
+    branches:
+      - production
+jobs:
+  build:
+    name: Github-Build-CopyCode
+    # runs-on: ubuntu-latest
+    runs-on: prod
+    environment: prod
+    steps:
+      - name: basic commands
+        run: |
+          uname -r
+          hostname
+          cat /etc/os-release
+          pwd
+          date
