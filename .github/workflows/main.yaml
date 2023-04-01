@@ -19,6 +19,7 @@ jobs:
           date
           echo "I like Vadapav" > build.txt
   prod:
+    needs: build
     name: Github-prod-CopyCode
     #runs-on: ubuntu-latest
     runs-on: prod
@@ -33,6 +34,7 @@ jobs:
           date
           echo "I like Vadapav" > prod.txt
   test:
+    needs: prod
     name: Github-test-CopyCode
     #runs-on: ubuntu-latest
     runs-on: test
