@@ -18,24 +18,9 @@ jobs:
           pwd
           date
           echo "I like Vadapav" > build.txt
-  prod:
+  test:
     needs: build
     name: Github-prod-CopyCode
-    #runs-on: ubuntu-latest
-    runs-on: prod
-    environment: prod
-    steps:
-      - name: basic commands
-        run: |
-          uname -r
-          hostname
-          cat /etc/os-release
-          pwd
-          date
-          echo "I like Vadapav" > prod.txt
-  test:
-    needs: prod
-    name: Github-test-CopyCode
     #runs-on: ubuntu-latest
     runs-on: test
     environment: test
@@ -47,5 +32,24 @@ jobs:
           cat /etc/os-release
           pwd
           date
+          echo "I like Vadapav" > prod.txt
+  prod:
+    needs: test
+    name: Github-test-CopyCode
+    #runs-on: ubuntu-latest
+    runs-on: prod
+    environment: prod
+    steps:
+      - name: basic commands
+        run: |
+          uname -r
+          hostname
+          cat /etc/os-release
+          pwd
+          date
           echo "I like Vadapav" > test.txt
+          sudo apt update -y
+          sudo apt install apache2 -y
+          sudo chmod a+rwx /var/www/html
+          sudo echo "Running in Prod" > /var/www/html/index.html
 
