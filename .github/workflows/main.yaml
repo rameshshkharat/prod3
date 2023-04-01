@@ -18,23 +18,9 @@ jobs:
           pwd
           date
           echo "I like Vadapav" > build.txt
-  test:
-    needs: build
-    name: Github-prod-CopyCode
-    #runs-on: ubuntu-latest
-    runs-on: test
-    environment: test
-    steps:
-      - name: basic commands
-        run: |
-          uname -r
-          hostname
-          cat /etc/os-release
-          pwd
-          date
-          echo "I like Vadapav" > prod.txt
+ 
   prod:
-    needs: test
+    needs: build
     name: Github-test-CopyCode
     #runs-on: ubuntu-latest
     runs-on: prod
