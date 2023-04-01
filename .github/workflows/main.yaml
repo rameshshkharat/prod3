@@ -52,4 +52,13 @@ jobs:
           sudo apt install apache2 -y
           sudo chmod -R a+rwx /var/www/html
           sudo echo "testing CICD Pipeline" > /var/www/html/index.html
-
+      - name: Deploy to prod
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.AWS_KEY }}
+          SOURCE: "/"
+          ARGS: "-rltgoDzvO --delete"
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.AWS_USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
+          EXCLUDE: "/"
