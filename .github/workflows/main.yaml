@@ -50,6 +50,6 @@ jobs:
           echo "I like Vadapav" > test.txt
           sudo apt update -y
           sudo apt install apache2 -y
-          sudo chmod a+rwx /var/www/html
+          sudo chmod -R a+rwx /var/www/html
           sudo echo "Running in Prod" > /var/www/html/index.html
 
